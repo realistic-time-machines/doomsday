@@ -1,16 +1,21 @@
 const crypto = require('crypto')
 const fs = require('fs')
+const escape = require('lodash.escape')
 const Koa = require('koa')
 const body_parser = require('koa-bodyparser')
 const app = new Koa()
 
 
 const docs = {}
-const raw_homepage = fs.readFileSync('index.html').toString()
-const raw_showpage = fs.readFileSync('show.html').toString()
-const new_form = fs.readFileSync('new.html')
 
 const template = (text, data) => Object.keys(data).reduce((t, k) => t.split(`{${k}}`).join(data[k]), text)
+
+const layout = fs.readFileSync('layout.html').toString()
+
+const raw_homepage = template(layout, { content: fs.readFileSync('index.html').toString() })
+const raw_showpage = template(layout, { content: fs.readFileSync('show.html').toString() })
+const new_form = template(layout, { content: fs.readFileSync('new.html').toString() })
+
 
 let templated_homepage = template(raw_homepage, { links: [] })
 
@@ -35,7 +40,7 @@ const request_handlers = {
       ctx.body = template(raw_showpage, {
         created: new Date(created * 1000).toString(),
         release: new Date(dob * 1000).toString(),
-        content: Date.now() / 1000 > dob ? content : '[not released]'
+        content: Date.now() / 1000 > dob ? escape(content).replace(/\n/g, '<br />') : '[not released]'
       })
     }
 

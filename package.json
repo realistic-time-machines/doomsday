@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "koa": "^2.2.0",
-    "koa-bodyparser": "^4.2.0"
+    "koa-bodyparser": "^4.2.0",
+    "lodash.escape": "^4.0.1"
   }
 }

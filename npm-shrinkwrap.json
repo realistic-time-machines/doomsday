@@ -166,6 +166,11 @@
       "from": "koa-is-json@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/koa-is-json/-/koa-is-json-1.0.0.tgz"
     },
+    "lodash.escape": {
+      "version": "4.0.1",
+      "from": "lodash.escape@latest",
+      "resolved": "https://registry.npmjs.org/lodash.escape/-/lodash.escape-4.0.1.tgz"
+    },
     "media-typer": {
       "version": "0.3.0",
       "from": "media-typer@0.3.0",
