@@ -1,0 +1,19 @@
+{
+  "name": "doomsday",
+  "version": "0.0.1",
+  "description": "don't open til doomsday",
+  "main": "index.js",
+  "engines": {
+    "node": "~7.9.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0"
+  }
+}
